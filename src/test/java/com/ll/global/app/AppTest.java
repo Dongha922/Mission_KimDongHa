@@ -51,7 +51,8 @@ public class AppTest {
 
         assertThat(out)
                 .contains("명언 :")
-                .contains("작가 :");
+                .contains("작가 :")
+                .contains("1번 명언이 등록되었습니다.");
 
     }
 
