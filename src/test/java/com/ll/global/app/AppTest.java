@@ -10,6 +10,7 @@ import java.util.Scanner;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AppTest {
+
     @Test
     @DisplayName("프로그램 시작 시 \"== 명언 앱 ==\" 출력")
     void t1() {
@@ -40,4 +41,24 @@ public class AppTest {
         TestUtil.clearSetOutToByteArray(byteArrayOutputStream);
 
     }
+    @Test
+    @DisplayName("등록")
+    void t3() {
+        Scanner scanner = TestUtil.genScanner("""
+                등록
+                나의 죽음을 적들에게 알리지 말라!
+                이순신
+                """.stripIndent());
+        ByteArrayOutputStream byteArrayOutputStream = TestUtil.setOutToByteArray();
+
+        new App(scanner).run();
+
+        String out = byteArrayOutputStream.toString().trim();
+        TestUtil.clearSetOutToByteArray(byteArrayOutputStream);
+        assertThat(out)
+                .contains("명언 :")
+                .contains("작가 :");
+
+    }
+
 }
