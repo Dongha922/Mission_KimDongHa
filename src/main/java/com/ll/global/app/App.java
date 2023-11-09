@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Scanner;
 public class App {
     private final Scanner scanner;
+    private int lastQuotationId;
+
+    private List<com.ll.domain.Quotation> quotations;
+
     public App(final Scanner scanner){
         this.scanner = scanner;
     }
